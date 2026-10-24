@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Super Street Fighter II - Kubo Touch</title>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #121212; color: #fff; font-family: Arial, sans-serif; }
+        header { text-align: center; padding: 15px; background: #1e1e1e; }
+        .badge { background: #e74c3c; color: #fff; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 14px; }
+        #game-card { max-width: 500px; margin: 20px auto; background: #1e1e1e; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .cover-container { width: 100%; height: 250px; background-image: url('streetfighter-cover.jpg'); background-size: cover; background-position: center; }
+        .content { padding: 20px; }
+        h1 { margin: 0 0 10px 0; font-size: 24px; color: #e74c3c; }
+        .meta-info { display: flex; gap: 10px; margin-bottom: 15px; font-size: 13px; color: #aaa; }
+        .description { font-size: 14px; line-height: 1.5; color: #ddd; margin-bottom: 15px; }
+        .details { font-size: 13px; color: #bbb; margin-bottom: 20px; }
+        .details ul { padding-left: 20px; margin: 0; }
+        .btn-play { display: block; width: 100%; padding: 12px; background: #c0392b; color: #fff; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; text-align: center; }
+        .btn-play:hover { background: #a93226; }
+        #game-container { display: none; width: 100%; height: 100vh; }
+        #game { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
 
+    <header>
+        <span class="badge">KUBO TOUCH</span>
+    </header>
+
+    <div id="game-card">
+        <div class="cover-container"></div>
+        <div class="content">
+            <h1>Super Street Fighter II</h1>
+            <div class="meta-info">
+                <span>🎮 1-2 Jogadores</span>
+                <span>📅 1994</span>
+                <span>🏢 Capcom</span>
+            </div>
+
+            <p class="description">
+                Escolha entre os 16 lutadores lendários, incluindo os novos desafiantes Cammy, Fei Long, T. Hawk e Dee Jay! Execute Hadoukens, Shoryukens e combos destruidores para se tornar o grande campeão mundial.
+            </p>
+
+            <div class="details">
+                <ul>
+                    <li><strong>🎯 Gênero:</strong> Luta / Ação</li>
+                </ul>
+            </div>
+
+            <button class="btn-play" onclick="startEmulator()">► JOGAR AGORA</button>
+        </div>
+    </div>
+
+    <div id="game-container">
+        <div style="width:100%; height:100%; max-width:100%;">
+            <div id="game"></div>
+        </div>
+    </div>
+
+    <script>
+        function startEmulator() {
+            document.getElementById('game-card').style.display = 'none';
+            document.getElementById('game-container').style.display = 'block';
+
+            window.EJS_player = "#game";
+            window.EJS_core = "snes9x";
+            window.EJS_gameName = "Super Street Fighter II";
+            window.EJS_color = "#e74c3c";
+            window.EJS_startOnLoaded = true;
+            window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+            
+            // Substitua o link abaixo pela URL direta da sua ROM (.sfc ou .smc) no GitHub
+            window.EJS_gameUrl = "https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/ssf2.sfc";
+            
+            let script = document.createElement("script");
+            script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
