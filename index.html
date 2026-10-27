@@ -54,28 +54,24 @@
     </div>
 
     <div id="game-container">
-        <div style="width:100%; height:100%; max-width:100%;">
-            <div id="game"></div>
-        </div>
+        <div id="game"></div>
     </div>
 
-    <script>
+    <script type="text/javascript">
         function startEmulator() {
             document.getElementById('game-card').style.display = 'none';
             document.getElementById('game-container').style.display = 'block';
 
-            window.EJS_player = "#game";
-            window.EJS_core = "snes9x";
-            window.EJS_gameName = "Super Street Fighter II";
-            window.EJS_color = "#e74c3c";
+            window.EJS_player = '#game';
+            window.EJS_core = 'snes9x';
+            window.EJS_gameName = 'Super Street Fighter II';
+            window.EJS_color = '#e74c3c';
             window.EJS_startOnLoaded = true;
-            window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
-            
-            // Link corrigido para o seu repositório atual e arquivo correto:
-            window.EJS_gameUrl = "https://raw.githubusercontent.com/grupoplanejar2024-coder/super-street-fighter-2/main/streetfighter.sfc";
+            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+            window.EJS_gameUrl = 'https://raw.githubusercontent.com/grupoplanejar2024-coder/super-street-fighter-2/main/streetfighter.sfc';
 
-            let script = document.createElement("script");
-            script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+            var script = document.createElement('script');
+            script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
             document.body.appendChild(script);
         }
     </script>
