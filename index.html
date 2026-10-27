@@ -57,11 +57,13 @@
         <div id="game"></div>
     </div>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
         function startEmulator() {
+            // Esconde o card e mostra o contentor do jogo ocupando a tela toda
             document.getElementById('game-card').style.display = 'none';
             document.getElementById('game-container').style.display = 'block';
 
+            // Configurações do EmulatorJS
             window.EJS_player = '#game';
             window.EJS_core = 'snes9x';
             window.EJS_gameName = 'Super Street Fighter II';
@@ -70,10 +72,13 @@
             window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
             window.EJS_gameUrl = 'https://raw.githubusercontent.com/grupoplanejar2024-coder/super-street-fighter-2/main/streetfighter.sfc';
 
+            // Injeta o loader do EmulatorJS com tratamento de erro
             var script = document.createElement('script');
             script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
+            script.async = true;
+            script.onerror = function() {
+                alert('Erro ao carregar o motor do emulador. Verifique a sua ligação.');
+            };
             document.body.appendChild(script);
         }
     </script>
-</body>
-</html>
